@@ -1,0 +1,209 @@
+/* Базовые настройки */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #1b1f2a; /* Цвет фона на случай если картинка не прогрузится */
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden; /* Убирает горизонтальный скролл */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Фон на весь экран */
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Убираем на задний план */
+}
+
+/* --- ШАПКА --- */
+.header-container {
+    background-color: #171a21;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    padding-bottom: 10px;
+}
+
+.top-nav {
+    width: 95%;
+    max-width: 1080px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* Поиск */
+.search-bar {
+    background: rgba(33, 75, 107, 0.2); /* Твой цвет фона поиска */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    width: 70%; /* Занимает 70% ширины на мобиле */
+    height: 50px;
+}
+.search-icon {
+	width: 20px;
+	height: 20px;
+}
+.search-text {
+    font-family: "Arial", sans-serif;
+    font-style: italic;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.burger-menu {
+    width: 50px; /* Адаптивный размер */
+    height: auto;
+    cursor: pointer;
+}
+
+/* Текстовое меню (Просмотр, Категории...) */
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 95%;
+    max-width: 1080px;
+    margin-top: 10px;
+}
+
+.nav-item {
+    font-size: 16px;
+    color: #b8b6b4;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.nav-item img {
+    width: 10px;
+}
+
+/* Скрываем текстовое меню на совсем маленьких экранах, чтобы не мешало */
+@media (max-width: 500px) {
+    .nav-links {
+        display: none; 
+    }
+}
+
+/* --- БЛОК ВХОДА --- */
+.login-wrapper {
+    flex: 1; /* Растягивается на оставшееся место */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем всё */
+    width: 100%;
+    max-width: 800px; /* Ограничиваем ширину на ПК */
+    margin: 40px auto;
+    padding: 0 20px; /* Отступы по бокам для мобилы */
+}
+
+.title-login {
+    font-family: "Arial Black", sans-serif;
+    font-size: 40px; /* Чуть меньше чем 70px, чтобы влезало */
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.input-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Цвета лейблов */
+.label-blue {
+    color: #2094e8;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.label-gray {
+    color: #909090;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Поля ввода (бывшие серые прямоугольники) */
+.custom-input {
+    background: #343434; /* Цвет твоих rectangle-1 и rectangle-2 */
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 100%;
+    height: 60px; /* Высота как у прямоугольников */
+    color: white;
+    font-size: 24px;
+    padding: 0 15px;
+    outline: none;
+}
+
+/* Кнопка Войти (бывший rectangle-3) */
+.btn-submit {
+    background: #1a9fff; /* Твой синий цвет */
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 70px;
+    color: white;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: #2094e8;
+}
+
+.create-acc-link {
+    color: #909090;
+    text-decoration: underline;
+    font-size: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.steam-text {
+    text-align: center;
+    color: #909090;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-top: 40px;
+    max-width: 600px;
+}
+
+.steam-link {
+    color: #2094e8;
+    text-decoration: underline;
+}
+
+.steam-logo {
+    width: 80%; /* Логотип на 80% ширины экрана */
+    max-width: 400px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
